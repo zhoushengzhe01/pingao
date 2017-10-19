@@ -1,0 +1,2 @@
+ var data = {"err_msg":"No ads (fy zero)","err_no":1,"ad_list":[],"ck":"8fc00922bc09442f10ff8a8be0973604"}; 
+getadsData(data);

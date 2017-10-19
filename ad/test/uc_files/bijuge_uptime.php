@@ -1,0 +1,1 @@
+document.writeln("<img alt='' src='http://m.ucxsw.com/modules/article/images/nocover.jpg' width='120' height='150' />")
