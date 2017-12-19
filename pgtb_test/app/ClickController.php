@@ -19,6 +19,7 @@ class ClickController
         $this->memcache_obj = new Memcache;
         
         $this->memcache_obj->pconnect( AppConfig::get('memcache.host'), AppConfig::get('memcache.port'));
+        
     }
 
     /**

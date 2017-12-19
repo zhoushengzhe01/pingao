@@ -22,13 +22,21 @@ class AdsController extends CommonController
         parent::__construct();
 
         if(strpos(Helper::server('http_referer'), 'https://') !== false){
-
+            /*
+            $this->jk_domain = 'https://in.pingao.com';
+            $this->wap_tz_domain = 'https://in.pingao.com';
+            $this->wechat_tz_domain = 'http://ptd.5177jy.com';
+    */
             $this->jk_domain = 'https://tp.ningyizs.com';
             $this->wap_tz_domain = 'https://tt.ningyizs.com';
             $this->wechat_tz_domain = 'http://ptd.5177jy.com';
 
         }else{
-
+            /*
+            $this->jk_domain = 'http://in.pingao.com';
+            $this->wap_tz_domain = 'http://in.pingao.com';
+            $this->wechat_tz_domain = 'http://ptd.5177jy.com';
+*/
             $this->jk_domain = 'http://tp.moecz.com';
             $this->wap_tz_domain = 'http://td.biyao365.com';
             $this->wechat_tz_domain = 'http://ptd.5177jy.com';
@@ -48,15 +56,7 @@ class AdsController extends CommonController
 
         if(empty($this->paramet->position_id))
             Helper::message('parameter error');
-    
-        
-        // if(strpos(Helper::server('http_referer'), 'debug=test'))
-        // {
-        //     //$this->memcache_obj->set("name","zhoushengzhe",MEMCACHE_COMPRESSED, 12);
-        //     echo  $this->memcache_obj->get("name","zhoushengzhe");
-        //     die;
-        // }
-        
+
         
         //广告位
         $model = new Model();

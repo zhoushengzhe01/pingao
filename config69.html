@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>小图标特殊广告配置</title>
+
+	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+	<script src="https://cdn.bootcss.com/vue/2.5.9/vue.min.js"></script>
+</head>
+<body style="margin:auto;width:80%;">
+	<div style="clear:both;margin:20px;font-size: 18px;">
+        <a href="config.php?t=67">横幅</a>&nbsp;&nbsp;&nbsp;
+        <a href="config.php?t=57">信息流</a>&nbsp;&nbsp;&nbsp;
+        <a href="#" style="color:red;">小图标</a>
+    </div>
+    <div id="app">
+
+   	    <div style="width: 100%;text-align: center;" v-if="wx_skip && wx_ad_ids">
+   	   	    <table class="table table-bordered" width="100%" cellspacing="1" bordercolor="#E8E8E8" cellpadding="1" border="1" style="border-collapse: collapse;">
+   	   	    	<tr>
+   	   	    		<td style="display:table-cell; vertical-align:middle" width="25%">微信量跳转地址</td>
+   	   	    		<td colspan="2"><input class="form-control" type="text" v-model="wx_skip"></td>
+   	   	    	</tr>
+   	   	    	<tr>
+   	   	    		<td style="display:table-cell; vertical-align:middle" width="25%">微信量跳转广告主ID</td>
+   	   	    		<td colspan="2"><input class="form-control" type="text" v-model="wx_ad_ids"></td>
+   	   	    	</tr>
+			</table>
+   	   	    <button type="button" class="btn btn-primary" v-on:click="post_data">确定修改</button>
+   	    </div>
+
+
+    </div>
+
+    <script>
+	new Vue({
+	  	el: '#app',
+	  	data: {
+	    	wx_skip: '',
+	    	wx_ad_ids: '',
+	  	},
+	  	created: function () {
+			var _this = this;
+
+			_this.get_data()
+		},
+		methods:{
+			get_data: function () {
+				var _this = this;
+
+				$.ajax({
+				    type: 'get',
+				    url: 'http://in.hzht666.com/config',
+				    data: {},
+					//dataType: 'jsonp',
+				    success: function(data){
+				    	if(data.start==true)
+				    	{
+				    		_this.wx_skip = data.data.wx_skip;
+				    		_this.wx_ad_ids = data.data.wx_ad_ids;
+				    	}
+				    	else
+				    	{
+				    		alert("网络出现问题！")
+				    	}
+				    }
+				});
+	    	},
+	    	post_data: function () {
+				var _this = this;
+
+				//109
+				$.ajax({
+				    type: 'post',
+				    url: 'http://in109.pingao.com/config',
+				   	data: {
+				    	'wx_skip': _this.wx_skip,
+				    	'wx_ad_ids': _this.wx_ad_ids,
+				    },
+					//dataType: 'jsonp',
+				    success: function(data){
+				    	if(data.start==true)
+				    	{
+				    		alert("109保存成功！")
+				    	}
+				    	else
+				    	{
+				    		alert("109 网络出现问题！")
+				    	}
+				    }
+				});
+
+				//97
+				$.ajax({
+				    type: 'post',
+				    url: 'http://in97.pingao.com/config',
+				   	data: {
+				    	'wx_skip': _this.wx_skip,
+				    	'wx_ad_ids': _this.wx_ad_ids,
+				    },
+					//dataType: 'jsonp',
+				    success: function(data){
+				    	if(data.start==true)
+				    	{
+				    		alert("97保存成功！")
+				    	}
+				    	else
+				    	{
+				    		alert("97 网络出现问题！")
+				    	}
+				    }
+				});
+	    	},
+		},
+
+	})
+</script>
+</body>
+</html>

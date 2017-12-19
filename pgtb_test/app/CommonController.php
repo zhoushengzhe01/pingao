@@ -27,6 +27,7 @@ class CommonController
      */
     public function init()
     {
+
         // 拦截不可访问的客户端
         if( !in_array(Helper::getOS(), AppConfig::get('permit_sys')) )
         {
@@ -86,8 +87,6 @@ class CommonController
         {
             $this->client_data->domain = substr($host, strpos($host, '.') + 1);
         }
-
-        
         
         //memcache缓存处理
         $this->memcache_obj = new Memcache;

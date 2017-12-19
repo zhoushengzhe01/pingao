@@ -42,7 +42,7 @@ class AppConfig
             'rate' => 20,
 
             //其他素材地址
-            'pic_url' => 'http://ey.hmj800.com/11/',
+            'pic_url' => 'http://ygm.0731xz.com/11/',
 
             //特殊广告输出
             'special_ads_id' => [152],
@@ -50,14 +50,15 @@ class AppConfig
             //同一用户在同一网站主同一广告位下的最大pv记数
             'pre_ip' => 5,
 
-            //图标的边框，大小，位置，pv记录，切换速度
+            //图标的边框，大小，位置，pv记录，切换速度 appear关闭之后在显示时间
             'status' => [
-                'default' => [ 'border'=>2, 'width'=>25, 'top'=>40, 'recordpv'=>10, 'rate'=>12000 ],
-                '4007' => [ 'border'=>2, 'width'=>25, 'top'=>40, 'recordpv'=>80, 'rate'=>12000 ],
-                '4963' => [ 'border'=>2, 'width'=>25, 'top'=>20, 'recordpv'=>10, 'rate'=>12000 ],
-                '5099' => [ 'border'=>2, 'width'=>20, 'top'=>32, 'recordpv'=>10, 'rate'=>12000 ],
-                '5122' => [ 'border'=>2, 'width'=>22, 'top'=>30, 'recordpv'=>10, 'rate'=>12000 ],
-                '4860' => [ 'border'=>2, 'width'=>25, 'top'=>32, 'recordpv'=>10, 'rate'=>12000 ],
+                'default' => [ 'border'=>2, 'width'=>25, 'top'=>40, 'recordpv'=>10, 'rate'=>12000, 'appear'=>20000],
+                '4007' => [ 'border'=>2, 'width'=>25, 'top'=>40, 'recordpv'=>80, 'rate'=>12000, 'appear'=>20000],
+                '4963' => [ 'border'=>2, 'width'=>25, 'top'=>20, 'recordpv'=>10, 'rate'=>12000, 'appear'=>20000],
+                '5099' => [ 'border'=>2, 'width'=>20, 'top'=>32, 'recordpv'=>10, 'rate'=>12000, 'appear'=>20000],
+                '5122' => [ 'border'=>2, 'width'=>22, 'top'=>30, 'recordpv'=>10, 'rate'=>12000, 'appear'=>20000],
+                '4860' => [ 'border'=>2, 'width'=>25, 'top'=>32, 'recordpv'=>10, 'rate'=>12000, 'appear'=>20000],
+                '4635' => [ 'border'=>2, 'width'=>25, 'top'=>40, 'recordpv'=>10, 'rate'=>12000, 'appear'=>0],
             ],
 
             // memcache

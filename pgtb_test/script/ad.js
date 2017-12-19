@@ -17,12 +17,12 @@
         try {
             a.$(Id).style.display = 'none'
         } catch(e) { };
-
-        setTimeout(function() {
-            try {
-                a.$(Id).style.display = 'block'
-            } catch(e) {}
-        }, 20000);
+    };
+    a.Sh = function(Id)
+    {
+        try {
+            a.$(Id).style.display = 'block'
+        } catch(e) { };
     };
     a.AC = function(Id, Na)
     {
@@ -81,10 +81,13 @@
     };
     a.Cl = function (K, D)
     {
-        if (Math.floor(Math.random() * 100 + 1) <= a.L.false_cl) {
+        if (Math.floor(Math.random() * 100 + 1) <= D.false_cl) {
             a.Ope(K, D, 2);
         } else {
-            a.Hi('ico-' + K)
+            a.Hi('ico-' + K);
+            if(D.appear > 0){
+                setTimeout(function() { a.Sh('ico-' + K); }, D.appear);
+            }
         }
     };
     a.Cpv = function(url) {
@@ -96,7 +99,7 @@
     a.Sty = function (K, D)
     {
         var c = '';
-        c += '.ico-'+K+' {display: block; position: fixed; top: '+D.top+'%; ' + (D.position == 0 ? 'left': 'right') + ': 10px; z-index: 999999999999; width: '+D.width+'%;}';
+        c += '.ico-'+K+' {display: block; position: fixed; top: '+D.top+'%; ' + (D.position == 0 ? 'left': 'right') + ': 10px; z-index: 2147483646; width: '+D.width+'%;}';
      
         for(var n in D.iXMGS){
             c += '.ico-'+K+' .con-'+K+' .cli-'+K+' .img'+n+'-'+K+':after{background-image: url('+D.iXMGS[n]+');}';
@@ -246,7 +249,6 @@
             }, 3000);
         }
     };
-
     //动画
     a.Act = function (K, D) {
         setInterval(function() { a.Yaob(K, D); }, 10000),
@@ -278,12 +280,11 @@
         top: parseInt("<?=$this->getStatus('top');?>"),
         recordpv: parseInt("<?=$this->getStatus('recordpv');?>"),
         rate: parseInt("<?=$this->getStatus('rate');?>"),
-
+        appear: parseInt("<?=$this->getStatus('appear');?>"),
         is_check: "<?=$this->is_check();?>",
         is_screen: 1,
     };
-    
-    
+
     a.Sty(key, a.L);
     a.Htm(key, a.L);
 

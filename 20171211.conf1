@@ -1,0 +1,15 @@
+server {
+        listen 80;
+	server_name ;
+
+	root /usr/www/pgtb/public;
+
+        location / {
+            fastcgi_pass   127.0.0.1:9000;
+            include fastcgi_params;
+            fastcgi_param SCRIPT_FILENAME $document_root/view.php;
+            fastcgi_split_path_info ^(\/view.php)?(.+)$;
+
+            fastcgi_param  PATH_INFO    $fastcgi_path_info;
+	}          
+}
